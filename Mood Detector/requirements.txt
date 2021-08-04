@@ -1,0 +1,6 @@
+Flask==1.0.2
+numpy==1.16.2
+tflite_runtime==2.5.0
+lobe==0.4.0
+picamera==1.13
+Pillow==8.3.1

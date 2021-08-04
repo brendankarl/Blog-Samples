@@ -15,13 +15,13 @@ def button():
 @app.route('/takepic')
 def takepic():
     currentdir = os.getcwd()
-    randomnumber = random.randint(1,100) # A random number is created for a query string used when presenting the picture taken, this is to avoid web browser caching.
+    randomnumber = random.randint(1,100) # A random number is created for a query string used when presenting the picture taken, this is to avoid web browser caching of the image.
     camera = PiCamera()
     camera.start_preview()
     sleep(2)
     camera.capture(str(currentdir) + "/static/image.jpg") # Take a pic and store in the static directory used by Flask
     camera.close()
-    url = "https://uksouth.api.cognitive.microsoft.com/face/v1.0/detect" # Replace with the Azure Congitive Services endpoint for the Face API (depends on the region deployed to)
+    url = "https://uksouth.api.cognitive.microsoft.com/face/v1.0/detect" # Replace with the Azure Cognitive Services endpoint for the Face API (depends on the region deployed to)
     key = "" # Azure Cogntivie Services key
     image_path = str(currentdir) + "/static/image.jpg"
     image_data = open(image_path, "rb").read()

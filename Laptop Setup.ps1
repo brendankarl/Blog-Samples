@@ -1,5 +1,5 @@
-choco install python
-choco install powershell-core
-choco install vscode
-choco install vnc-viewer
-choco install notepadplusplus.install
+choco install python -y
+choco install powershell-core -y
+choco install vscode -y
+choco install vnc-viewer -y
+choco install notepadplusplus.install -y

@@ -20,4 +20,4 @@ def lightup(id):
 while True:
     randnum = random.randint(0,15)
     lightup(randnum)
-    utime.sleep(0.25)
+    utime.sleep(0.15)

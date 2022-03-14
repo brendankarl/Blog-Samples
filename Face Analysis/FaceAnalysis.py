@@ -22,7 +22,7 @@ def takepic():
     camera.capture(str(currentdir) + "/static/image.jpg") # Take a pic and store in the static directory used by Flask
     camera.close()
     url = "https://uksouth.api.cognitive.microsoft.com/face/v1.0/detect" # Replace with the Azure Cognitive Services endpoint for the Face API (depends on the region deployed to)
-    key = "" # Azure Cogntivie Services key
+    key = "" # Azure Cognitive Services key
     image_path = str(currentdir) + "/static/image.jpg"
     image_data = open(image_path, "rb").read()
     headers = {"Ocp-Apim-Subscription-Key" : key,'Content-Type': 'application/octet-stream'}

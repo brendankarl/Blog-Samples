@@ -13,6 +13,3 @@ COPY ./SpeedTest.ps1 /speedtest/SpeedTest.ps1
 WORKDIR /speedtest
 ENTRYPOINT ["pwsh"]
 CMD ["SpeedTest.ps1"]
-# https://www.fosstechnix.com/dockerfile-instructions/
-# docker build -t speedtest
-# docker run speedtest

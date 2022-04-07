@@ -1,0 +1,6 @@
+services:
+  runner:
+    build: ./
+    volumes:
+      - /home/pi/speedtest/logs:/etc/speedtest/logs
+    restart: unless-stopped

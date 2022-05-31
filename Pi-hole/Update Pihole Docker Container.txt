@@ -1,0 +1,4 @@
+docker container stop pihole
+docker container rm pihole
+docker rmi pihole/pihole
+docker-compose up -d

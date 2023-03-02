@@ -37,7 +37,7 @@ payload = {
 
 r = requests.post(url,headers = headers,data = json.dumps(payload))
 results = r.headers["operation-location"]
-time.sleep(10)
+time.sleep(10) # Being super lazy here and putting in a sleep, rather than polling for the results to see when they are available!
 r = requests.get(results,headers = headers)
 
 for s in r.json()["tasks"]["items"][0]["results"]["documents"][0]["sentences"]:

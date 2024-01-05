@@ -1,6 +1,6 @@
 # This script queries the active sessions on a given OCI bastion (bastionocid), if it doesn't find a session for the specified server (serverocid)
-# it will create a new bastion session and return the resultant SSH command to connect to the server and stores in the clipboard, simply copy/paste into a terminal to connect,
-# if their is an active session for the server, it returns the SSH command to connect to the server and stores within the clipboard, simply copy/paste into a terminal to connect
+# it will create a new bastion session and return the resultant SSH command to connect to the server and copies to the clipboard, simply paste this into a terminal to connect,
+# if their is an active session for the server, it returns the SSH command to connect to the server and copies to the clipboard, simply paste into a terminal to connect
 
 # pip install oci - if you don't have this installed
 import oci

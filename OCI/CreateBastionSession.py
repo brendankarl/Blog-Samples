@@ -18,7 +18,7 @@ privatekeypath = "D:\\OCI\\OCI.key" # Update to the correct location of the priv
 # Public key used for auth to bastion (using the same key for the VM too, to make it simple)
 publickey = "PUBLICKEY" # Copy/paste the content of the public key file (.pub)
 
-# Read the config created when the API Signing Key was generated
+# Read the config
 config = oci.config.from_file()
 # Create client with the default config file (\.oci\config)
 bastionclient = oci.bastion.BastionClient(config)

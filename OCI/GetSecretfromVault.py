@@ -5,8 +5,8 @@ import base64
 keyOCID = "OCID"
 
 # Create vaultsclient using the default config file (\.oci\config) for auth to the API
-vaultclient = oci.vault.VaultsClient(config)
 config = oci.config.from_file()
+vaultclient = oci.vault.VaultsClient(config)
 
 # Get the secret
 secretclient = oci.secrets.SecretsClient(config)

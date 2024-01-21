@@ -14,7 +14,7 @@ config = oci.config.from_file() # auth to OCI using the default config file and 
 
 ai_vision_client = oci.ai_vision.AIServiceVisionClient(config) # create the Vision API client
 
-analyze_image = ai_vision_client.analyze_image( #pass the image for analysis
+analyze_image = ai_vision_client.analyze_image( #pass the image for analysis to object detection
     analyze_image_details=oci.ai_vision.models.AnalyzeImageDetails(
         features=[
             oci.ai_vision.models.ImageObjectDetectionFeature(

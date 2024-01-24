@@ -13,9 +13,6 @@ batch_detect_language_pii_entities_response = ai_language_client.batch_detect_la
                 language_code="en")],
         compartment_id="Compartment ID"))
 
-# Get the data from response
-print(batch_detect_language_pii_entities_response.data)
-
 cleansedtext = texttoanalyse # Replace the PII in the string with the type of data it is, for example e-mail address
 for document in batch_detect_language_pii_entities_response.data.documents:
     for entities in document.entities:

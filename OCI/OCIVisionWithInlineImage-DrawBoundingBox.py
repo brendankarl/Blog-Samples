@@ -4,7 +4,7 @@ import cv2
 import numpy as np
 
 imagepath = "D:\\Pictures\\Camera Roll\\Photo.jpg" # path of the image to analyse
-imagewritepath = "C:\\Pictures\\Camera Roll\\PhotoBoundingBox.jpg" # image to create with bounding box
+imagewritepath = "D:\\Pictures\Camera Roll\\PhotoBoundingBox.jpg" # image to create with bounding box
  
 def get_base64_encoded_image(image_path): # encode image to Base64
     with open(image_path, "rb") as img_file:

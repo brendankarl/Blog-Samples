@@ -1,0 +1,25 @@
+import oci
+
+config = oci.config.from_file()
+ai_language_client = oci.ai_language.AIServiceLanguageClient(config)
+texttoanalyse = "my details are brendan@brendg.co.uk, I was born in 1981"
+
+batch_detect_language_pii_entities_response = ai_language_client.batch_detect_language_pii_entities(
+    batch_detect_language_pii_entities_details=oci.ai_language.models.BatchDetectLanguagePiiEntitiesDetails(
+        documents=[
+            oci.ai_language.models.TextDocument(
+                key="String1",
+                text=texttoanalyse,
+                language_code="en")],
+        compartment_id="Compartmend ID"))
+
+# Get the data from response
+print(batch_detect_language_pii_entities_response.data)
+
+cleansedtext = texttoanalyse
+
+for document in batch_detect_language_pii_entities_response.data.documents:
+    for entities in document.entities:
+        cleansedtext = cleansedtext.replace((entities.text),("*" + (entities.type) + "*"))
+
+print(cleansedtext)

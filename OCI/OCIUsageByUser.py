@@ -1,5 +1,4 @@
 import oci
-import json
 import datetime
 
 # Authenticate to OCI

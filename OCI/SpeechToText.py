@@ -1,3 +1,5 @@
+# Script that analyses the transcript output from the OCI AI Speech service
+
 import json
 
 # Open the transcription JSON output file

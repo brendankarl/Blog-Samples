@@ -1,4 +1,4 @@
-# Python script that calls an ML model created using AutoML.
+# Python script that calls an ML model named EmpAttrition created using Oracle AutoML.
 # Model trained using an employee attrition dataset - https://www.kaggle.com/datasets/patelprashant/employee-attrition
 
 import requests

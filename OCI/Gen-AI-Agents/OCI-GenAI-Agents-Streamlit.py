@@ -11,11 +11,11 @@ st.sidebar.image("https://brendg.co.uk/wp-content/uploads/2021/05/myavatar.png")
 # OCI GenAI settings
 config = oci.config.from_file(profile_name="DEFAULT") # Update this with your own profile name
 service_ep = "https://agent-runtime.generativeai.us-chicago-1.oci.oraclecloud.com" # Update this with the appropriate endpoint for your region, a list of valid endpoints can be found here - https://docs.oracle.com/en-us/iaas/api/#/en/generative-ai-agents-client/20240531/
-agent_ep_id = "ocid1.genaiagentendpoint.oc1.us-chicago-1.amaaaaaaayvpzvaa7z2imflumr7bbxeguh6y7bpnw2yie4lca2usxrct7naa" # Update this with your own agent endpoint OCID, this can be found within Generative AI Agents > Agents > (Your Agent) > Endpoints > (Your Endpoint) > OCID
+agent_ep_id = "ocid1.genaiagentendpoint.oc1.us-chicago-1.amaaaaaaayvpzvaa7z2imflumr7bbxeguh6y7bpnw2yie4lca2usxrct" # Update this with your own agent endpoint OCID, this can be found within Generative AI Agents > Agents > (Your Agent) > Endpoints > (Your Endpoint) > OCID
 
 # Response Generator
 def response_generator(textinput):
-    # Initialise service client with default config file
+    # Initialize service client with default config file
     generative_ai_agent_runtime_client = oci.generative_ai_agent_runtime.GenerativeAiAgentRuntimeClient(config,service_endpoint=service_ep)
 
     # Create Session
@@ -33,13 +33,11 @@ def response_generator(textinput):
             user_message=textinput,
             session_id=sess_id))
 
+    #print(str(response.data))
     response = response.data.message.content.text
+    return response
 
-    for word in response.split():
-        yield word + " "
-        time.sleep(0.05)
-
-# Initialise chat history
+# Initialize chat history
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
@@ -58,6 +56,7 @@ if prompt := st.chat_input("How can I help?"):
 
     # Display assistant response in chat message container
     with st.chat_message("assistant"):
-        response = st.write_stream(response_generator(prompt))
+        response = response_generator(prompt)
+        write_response = st.write(response)
     # Add assistant response to chat history
     st.session_state.messages.append({"role": "assistant", "content": response})
